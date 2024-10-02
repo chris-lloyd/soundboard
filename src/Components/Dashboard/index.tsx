@@ -3,6 +3,7 @@ import { api } from "../../api";
 import Description from "./Description";
 import useFetch from "../../hooks/useFetch";
 import CardList from "../CardList";
+import Footer from "../Footer";
 
 const Dashboard = () => {
   const { data, loading, refresh } = useFetch(api.playlist);
@@ -20,6 +21,8 @@ const Dashboard = () => {
           </div>
         </>
       )}
+
+      <Footer/>
     </div>
   );
 };
