@@ -1,13 +1,10 @@
 {
-    "posts": [
-      { "id": "1", "title": "a title", "views": 100 },
-      { "id": "2", "title": "another title", "views": 200 }
-    ],
-    "comments": [
-      { "id": "1", "text": "a comment about post 1", "postId": "1" },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
-    ],
-    "profile": {
-      "name": "typicode"
+  "playlist": [
+    {
+      "id": "1",
+      "title": "HA HA",
+      "link": "https://www.youtube.com/watch?v=bx9kaa7IsBg",
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DeOifa1WrOnQ&psig=AOvVaw0Sbv7hburlvGIO2DpRH6SS&ust=1727950300422000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKi8n9G674gDFQAAAAAdAAAAABAE"
     }
-  }
+  ]
+}
