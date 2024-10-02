@@ -5,20 +5,21 @@ import useFetch from "../../hooks/useFetch";
 import CardList from "../CardList";
 
 const Dashboard = () => {
-  const { data, loading } = useFetch(api.playlist);
+  const { data, loading, refresh } = useFetch(api.playlist);
+  const [playing, setPlaying] = React.useState(false); // State to control playback
 
-  console.log({ data });
 
   return (
-    <div className="flex flex-col w-full p-4">
-      <Description />
+    <div className="flex flex-col w-full p-2">
+      {data && !loading && (
+        <>
+          <Description refresh={refresh} setPlaying={setPlaying}/>
 
-      <div className="flex flex-row w-full gap-2 max-h-[80vh]">
-        {/* <div className="flex-1 bg-blue-500 p-4 mb-4 rounded-lg">Item 1</div>
-        <div className="flex-1 bg-green-500 p-4 mb-4 rounded-lg">Item 2</div>
-        <div className="flex-1 bg-green-500 p-4 mb-4 rounded-lg">Item 2</div> */}
-        <CardList />
-      </div>
+          <div className="flex flex-row w-full ">
+            <CardList cards={data} playing={playing} setPlaying={setPlaying} refresh={refresh}/>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -1,28 +1,31 @@
-// src/useFetch.js
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
 
-const useFetch = (url: string, options: any = { method: "get" }) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const useFetch = (url:string) => {
+  const [data, setData] = useState(null);  // State for fetched data
+  const [loading, setLoading] = useState(true);  // State for loading status
+  const [error, setError] = useState(null);  // State for error handling
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios(url, options);
-        setData(response.data);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Fetch function
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    setError(null); // Reset error state before fetching
 
-    fetchData();
+    try {
+      const response = await axios.get(url);
+      setData(response.data); // Update the data state with the response
+    } catch (err:any) {
+      setError(err.message); // Update the error state
+    } finally {
+      setLoading(false); // Set loading to false after fetching
+    }
   }, [url]);
 
-  return { data, loading, error };
+  useEffect(() => {
+    fetchData(); // Fetch data on mount
+  }, [fetchData]);
+
+  return { data, loading, error, refresh: fetchData }; // Return refresh function
 };
 
 export default useFetch;
