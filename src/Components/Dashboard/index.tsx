@@ -1,8 +1,13 @@
 import * as React from "react";
 import { api } from "../../api";
 import Description from "./Description";
+import useFetch from "../../hooks/useFetch";
 
 const Dashboard = () => {
+  const { data, loading } = useFetch(api.playlist);
+
+  console.log({ data });
+
   return (
     <div className="flex flex-col w-full p-4">
       <Description />
