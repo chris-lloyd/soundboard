@@ -58,7 +58,7 @@ const CardList = ({
         {cards.map((card: cardsProps) => (
           <div
             key={card.id}
-            className="max-w-sm  bg-zinc-500 border-gray-200 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
+            className="max-w-sm max-h-72 bg-zinc-500 border-gray-200 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
           >
             <div className="relative group">
               <img
