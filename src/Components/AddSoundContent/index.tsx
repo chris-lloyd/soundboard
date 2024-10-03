@@ -32,7 +32,7 @@ const AddSoundContent = ({ refresh }: { refresh: Function }) => {
       ...finalValues,
     });
 
-    refresh()
+    refresh();
   };
 
   return (
