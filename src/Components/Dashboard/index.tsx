@@ -9,20 +9,24 @@ const Dashboard = () => {
   const { data, loading, refresh } = useFetch(api.playlist);
   const [playing, setPlaying] = React.useState(false); // State to control playback
 
-
   return (
     <div className="flex flex-col w-full p-2">
       {data && !loading && (
         <>
-          <Description refresh={refresh} setPlaying={setPlaying}/>
+          <Description refresh={refresh} setPlaying={setPlaying} />
 
-          <div className="flex flex-row w-full ">
-            <CardList cards={data} playing={playing} setPlaying={setPlaying} refresh={refresh}/>
+          <div className="flex flex-row w-full h-[70vh] overflow-y-auto scrollbar-thin">
+            <CardList
+              cards={data}
+              playing={playing}
+              setPlaying={setPlaying}
+              refresh={refresh}
+            />
           </div>
         </>
       )}
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

@@ -14,12 +14,12 @@ const CardList = ({
   cards,
   playing,
   setPlaying,
-  refresh
+  refresh,
 }: {
   cards: cardsProps[];
   playing: boolean;
   setPlaying: Function;
-  refresh:Function
+  refresh: Function;
 }) => {
   const [currentSound, setCurrentSound] = useState({
     link: "",
@@ -102,7 +102,7 @@ const CardList = ({
             <button
               onClick={() => {
                 handleOpenModal();
-                setPlaying(false)
+                setPlaying(false);
                 setCurrentSound({ id: card.id, link: card.link });
               }}
               className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full shadow-lg focus:outline-none"
@@ -131,7 +131,13 @@ const CardList = ({
       <Modal
         isOpen={isModalOpen}
         onClose={handleOpenModal}
-        children={<DeleteSoundContent currentSound={currentSound} handleOpenModal={handleOpenModal} refresh={refresh}/>}
+        children={
+          <DeleteSoundContent
+            currentSound={currentSound}
+            handleOpenModal={handleOpenModal}
+            refresh={refresh}
+          />
+        }
       />
     </>
   );
