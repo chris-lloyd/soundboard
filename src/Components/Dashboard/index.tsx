@@ -15,7 +15,7 @@ const Dashboard = () => {
         <>
           <Description refresh={refresh} setPlaying={setPlaying} />
 
-          <div className="flex-row w-full h-[70vh] overflow-y-auto scrollbar-thin">
+          <div className="flex-row w-full h-[70vh] overflow-y-auto">
             <CardList
               cards={data}
               playing={playing}
