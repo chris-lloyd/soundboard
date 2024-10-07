@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"json-server --watch db.json --port 4000\"",
-    "start": "vite",
-    "build": "vite build",
+    "dev": "concurrently \"vite --mode development\" \"json-server --watch db.json --port 4000\"",
+    "start": "vite --mode production",
+    "build": "vite build --mode production",
+    "start:prod": "node api/server.cjs",
     "json-server": "json-server --watch db.json --port 4000",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -15,6 +16,7 @@
     "@types/node": "^22.7.4",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.7",
+    "cors": "^2.8.5",
     "formik": "^2.4.6",
     "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
